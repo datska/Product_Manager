@@ -19,15 +19,4 @@ public class ProductRepositoryTest {
         Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
-
-    @Test
-    public void  elementShouldDeleted() {
-        Product[] expected = new Product[]{secondBook};
-        repository.save(firstBook);
-        repository.save(secondBook);
-
-        assertThrows(NotFoundException.class, () -> {
-            repository.removeById(-10);
-        });
-    }
 }
